@@ -1,0 +1,33 @@
+ /*
+  * © 2019 Henri Tanskanen
+  * 
+  * SPDX-License-Identifier: MIT
+  */
+
+div {
+  font-family: sans-serif;
+  font-size: 11pt;
+  margin-top: 1.05em;
+  margin-bottom: 1.05em;
+}
+
+/* Hack to re-level two buttons on the top */
+a.btn {
+  margin-top: calc(1.05em + 1px);
+}
+
+/* Indentation of numbered sub-paragraps (kohdat) */
+div.paragraph {
+  padding-left: 20px;
+}
+.left-column {
+  top: 60px !important;
+}
+.table-of-contents {
+  height: 70vh !important;
+  font-size: 10pt;
+}
+.table-of-contents a.section {
+  padding-left: 15px !important;
+  letter-spacing: -0.05em;
+}

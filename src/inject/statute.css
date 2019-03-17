@@ -1,0 +1,16 @@
+ /*
+  * © 2019 Henri Tanskanen
+  * 
+  * SPDX-License-Identifier: MIT
+  */
+
+.quote-function {
+  cursor: pointer;
+  color: #aaa;
+}
+.quote-function:hover {
+  text-decoration: underline;
+}
+.prequote {
+  color: #999;
+}

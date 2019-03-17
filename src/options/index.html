@@ -1,0 +1,45 @@
+<!--
+© 2019 Henri Tanskanen
+
+SPDX-License-Identifier: MIT
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Options for Finlex Tweaks</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>Options</h1>
+    <h2>Statute page</h2>
+    <label>
+      <input type="checkbox" id="gpLinks" /> Add links to Finlex versions of
+      Government Proposals </label
+    ><br />
+    <label>
+      <input type="checkbox" id="sfTopLink" /> Add statute link to Semanttinen
+      Finlex</label
+    ><br />
+    <label>
+      <input type="checkbox" id="sfSectionLinks" /> Add section links to
+      Semanttinen Finlex</label
+    ><br />
+    <label>
+      <input type="checkbox" id="preQuote" /> (<b>Experimental</b>) Enable
+      prepending any paragraph with Finnish section reference, e.g., "Velan
+      vanhentumisesta annetun lain (728/2003) 5 §:n 1 momentin mukaan ..."
+    </label>
+    <h2>Other</h2>
+    <label>
+      <input type="checkbox" id="fokiRedirect" /> Redirect "Oikeuskäytäntö
+      kirjallisuudessa" pages to the case text, <i>if</i> accessed through
+      Google search
+    </label>
+    <br />
+    <br />
+    <button id="save">Save</button>
+    <p id="status"></p>
+    <script src="options.js"></script>
+  </body>
+</html>
