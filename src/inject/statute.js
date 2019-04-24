@@ -1,8 +1,8 @@
- /*
-  * © 2019 Henri Tanskanen
-  * 
-  * SPDX-License-Identifier: MIT
-  */
+/*
+ * © 2019 Henri Tanskanen
+ *
+ * SPDX-License-Identifier: MIT
+ */
 
 // Some shared variables
 
@@ -54,11 +54,14 @@ function gpLinks() {
         .parent()
         .parent()
     )
-    const gpUrl = finlexGpUrl(gp.attr("href"))
-    const gpText = gp.text()
-    $(this).after(
-      `<sup><small> (<b><a href="${gpUrl}" title="${gpText}">he</a></b>)</small></sup>`
-    )
+    const eduskuntaGpUrl = gp.attr("href")
+    if (eduskuntaGpUrl) {
+      const gpUrl = finlexGpUrl(eduskuntaGpUrl)
+      const gpText = gp.text()
+      $(this).after(
+        `<sup><small> (<b><a href="${gpUrl}" title="${gpText}">he</a></b>)</small></sup>`
+      )
+    }
   })
 }
 
