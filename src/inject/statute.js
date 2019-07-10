@@ -1,5 +1,5 @@
 /*
- * © 2019 Henri Tanskanen
+ * Copyright (c) 2019 <henri@kelmu.org>
  *
  * SPDX-License-Identifier: MIT
  */

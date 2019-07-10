@@ -1,8 +1,8 @@
- /*
-  * © 2019 Henri Tanskanen
-  * 
-  * SPDX-License-Identifier: MIT
-  */
+/*
+ * Copyright (c) 2019 <henri@kelmu.org>
+ *
+ * SPDX-License-Identifier: MIT
+ */
 
 const foki = location.href.match(/foki=(\d+)/)
 if (foki) {

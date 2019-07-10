@@ -1,8 +1,8 @@
- /*
-  * © 2019 Henri Tanskanen
-  * 
-  * SPDX-License-Identifier: MIT
-  */
+/*
+ * Copyright (c) 2019 <henri@kelmu.org>
+ *
+ * SPDX-License-Identifier: MIT
+ */
 
 if (/^https?:\/\/(www\.)?(google\.com|google\.fi)/.test(document.referrer)) {
   const elements = document.querySelectorAll("a")

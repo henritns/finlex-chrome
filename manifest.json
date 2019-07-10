@@ -1,16 +1,19 @@
 {
-  "name": "finlex-chrome",
-  "version": "0.0.1",
+  "name": "Finlex Ex",
+  "version": "0.0.2",
   "manifest_version": 2,
   "description": "Tweaks to Finlex UI",
   "icons": {
+    "48": "icons/icon48.png",
+    "96": "icons/icon96.png",
     "128": "icons/icon128.png"
   },
   "background": {
-    "scripts": ["src/bg/background.js"],
-    "persistent": false
+    "scripts": ["src/bg/background.js"]
   },
-  "options_page": "src/options/index.html",
+  "options_ui": {
+    "page": "src/options/index.html"
+  },
   "permissions": ["*://*.finlex.fi/*", "storage"],
   "content_scripts": [
     {
