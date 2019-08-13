@@ -1,6 +1,6 @@
 {
   "name": "Finlex Ex",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "manifest_version": 2,
   "description": "Tweaks to Finlex UI",
   "icons": {
@@ -29,7 +29,7 @@
         "*://*.finlex.fi/fi/laki/ajantasa/*/*",
         "*://*.finlex.fi/fi/laki/alkup/*/*"
       ],
-      "js": ["3rdparty/jquery/jquery-3.4.1.js", "src/inject/statute.js"],
+      "js": ["3rdparty/jquery-3.4.1.js", "src/inject/statute.js"],
       "css": ["src/inject/statute.css"]
     },
     {
