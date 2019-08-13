@@ -4,7 +4,7 @@ Upstream-Contact: <henri@kelmu.org>
 Source: https://github.com/henritns/finlex-ex
 
 Files: manifest.json .gitignore icons/*
-Copyright: <henri@kelmu.org>
+Copyright: 2019 Henri Tanskanen <henri@kelmu.org>
 License: CC0-1.0
 
 Files: 3rdparty/jquery/jquery-3.4.1.js
