@@ -4,13 +4,13 @@ SPDX-FileCopyrightText: 2019 Henri Tanskanen <henri@kelmu.org>
 SPDX-License-Identifier: CC0-1.0
 -->
 
-# Finlex browser tweaks
+# Finlex Ex
 
 A browser extension to tweak your Finlex experience. Not that serious, but open for contributions.
 
 ## Installation and use
 
-You have to load this unpacked from source. In Chrome, for example, from `More tools > Extensions`, switch on `Developer mode`, then `Load unpacked` and select the source folder.
+To load this unpacked from source, in Chrome, for example, from `More tools > Extensions`, switch on `Developer mode`, then `Load unpacked` and select the source folder.
 
 The extension has an Options page available through the menu button.
 

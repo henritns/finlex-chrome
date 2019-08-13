@@ -7,6 +7,6 @@ Files: manifest.json .gitignore icons/*
 Copyright: 2019 Henri Tanskanen <henri@kelmu.org>
 License: CC0-1.0
 
-Files: 3rdparty/jquery/jquery-3.4.1.js
+Files: 3rdparty/jquery-3.4.1.js
 Copyright: JS Foundation and other contributors
 License: MIT
