@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2019 <henri@kelmu.org>
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Finlex browser tweaks
 
 A browser extension to tweak your Finlex experience. Not that serious, but open for contributions.
@@ -28,4 +34,4 @@ This should work on Firefox, too, but you'll have to figure out the installation
 
 ## Licensing
 
-Both the code of the extension and its sole dependency, jQuery v3.3.1, are distributed under the `MIT` license.
+All source code is distributed under the `MIT` license – everything else is `CC0-1.0` (e.g. icons, configuration). An effort was made to comply with the [REUSE](https://reuse.software/) Specification – Version 3.0.

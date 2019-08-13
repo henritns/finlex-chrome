@@ -1,0 +1,12 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: finlex-ex
+Upstream-Contact: <henri@kelmu.org>
+Source: https://github.com/henritns/finlex-ex
+
+Files: manifest.json .gitignore icons/*
+Copyright: <henri@kelmu.org>
+License: CC0-1.0
+
+Files: 3rdparty/jquery/jquery-3.4.1.js
+Copyright: JS Foundation and other contributors
+License: MIT
