@@ -159,7 +159,7 @@ function sfSectionUrl(sectionId) {
   }
   const year = urlMatches[1]
   const number = urlMatches[2].slice(-4).replace(/^0+/, "")
-  const withChapters = sectionId.match(/^L(\d+\w?)P(\d+\w?)$/)
+  const withChapters = sectionId.match(/L(\d+\w?)P(\d+\w?)$/)
   const sectionsOnly = sectionId.match(/^P(\d+\w?)$/)
   if (withChapters) {
     const chapt = withChapters[1]
