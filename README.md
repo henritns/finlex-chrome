@@ -10,11 +10,13 @@ A browser extension to tweak your Finlex experience. Not that serious, but open 
 
 ## Installation and use
 
-To load this unpacked from source, in Chrome, for example, from `More tools > Extensions`, switch on `Developer mode`, then `Load unpacked` and select the source folder.
+The extension is available at the [Chrome Web Store](https://chrome.google.com/webstore/detail/finlex-ex/ehfjhbpckpmimmopilkmnopfjobkpifb). Updates are issued from time to time corresponding to new GitHub releases.
+
+It's also possible to load the extension directly from source, for example, to test new changes just committed to the codebase. Download the desired version from GitHub, and then in Chrome, for example, from `More tools > Extensions`, switch on `Developer mode`, then `Load unpacked` and select the relevant source folder.
 
 The extension has an Options page available through the menu button.
 
-This should work on Firefox, too, but you'll have to figure out the installation yourself.
+While not regularly tested, the extension should work on Firefox, too. For that one, you'll have to figure out the installation yourself.
 
 ## Features
 
