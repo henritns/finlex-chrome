@@ -43,6 +43,7 @@ function gpLinks() {
     `<sup><small> (<a href="${firstGpUrl}" title="${firstGpText}">he</a>)</small></sup>`
   )
   $("a.mvs:contains('/')").each(function() {
+    spot = $(this)
     const id = $(this)
       .attr("href")
       .replace("#", "")
@@ -52,13 +53,15 @@ function gpLinks() {
         .parent()
         .parent()
     )
-    const eduskuntaGpUrl = gp.attr("href")
-    if (!eduskuntaGpUrl) return true // skips to next iteration
-    const gpUrl = finlexGpUrl(eduskuntaGpUrl)
-    const gpText = gp.text()
-    $(this).after(
-      `<sup><small> (<b><a href="${gpUrl}" title="${gpText}">he</a></b>)</small></sup>`
-    )
+    gp.each(function() {
+      const eduskuntaGpUrl = $(this).attr("href")
+      if (!eduskuntaGpUrl) return true // skips to next iteration
+      const gpUrl = finlexGpUrl(eduskuntaGpUrl)
+      const gpText = $(this).text()
+      spot.after(
+        `<sup><small> (<b><a href="${gpUrl}" title="${gpText}">he</a></b>)</small></sup>`
+      )
+    })
   })
 }
 
