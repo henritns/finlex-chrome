@@ -8,28 +8,26 @@
 
 const urlMatches = location.href.match(/(ajantasa|alkup)\/(\d{4})\/(\d{8})/)
 const statuteYear = urlMatches[2]
-const statuteNumber = urlMatches[3].slice(-4).replace(/^0+/, "")
-
-const run = func => {
-  try {
-    func()
-  } catch (error) {
-    console.error(error)
-  }
-}
+const statutePaddedNumber = urlMatches[3].slice(-4)
+const statuteNumber = statutePaddedNumber.replace(/^0+/, "")
 
 chrome.storage.sync.get(
   {
     gpLinks: true,
     sfTopLink: true,
     sfSectionLinks: true,
+    edTopLink: false,
+    edSectionLinks: false,
     preQuote: false
   },
   opts => {
-    if (opts.gpLinks) run(gpLinks)
-    if (opts.sfTopLink) run(sfTopLink)
-    if (opts.sfSectionLinks) run(sfSectionLinks)
-    if (opts.preQuote) run(preQuote)
+    if (opts.sfTopLink) sfTopLink()
+    if (opts.edTopLink) edTopLink()
+    if (opts.sfSectionLinks || opts.edSectionLinks) {
+      sectionLinks(opts.sfSectionLinks, opts.edSectionLinks)
+    }
+    if (opts.gpLinks) gpLinks()
+    if (opts.preQuote) preQuote()
   }
 )
 
@@ -55,13 +53,12 @@ function gpLinks() {
         .parent()
     )
     const eduskuntaGpUrl = gp.attr("href")
-    if (eduskuntaGpUrl) {
-      const gpUrl = finlexGpUrl(eduskuntaGpUrl)
-      const gpText = gp.text()
-      $(this).after(
-        `<sup><small> (<b><a href="${gpUrl}" title="${gpText}">he</a></b>)</small></sup>`
-      )
-    }
+    if (!eduskuntaGpUrl) return true // skips to next iteration
+    const gpUrl = finlexGpUrl(eduskuntaGpUrl)
+    const gpText = gp.text()
+    $(this).after(
+      `<sup><small> (<b><a href="${gpUrl}" title="${gpText}">he</a></b>)</small></sup>`
+    )
   })
 }
 
@@ -72,19 +69,30 @@ function sfTopLink() {
   )
 }
 
-function sfSectionLinks() {
-  // Add links to Semanttinen Finlex for each section (§)
+function edTopLink() {
+  // Add link to Semanttinen Finlex to document version list at the top
+  $("#version-links-header ul").append(
+    `<li><span style="color: #888">⬒</span> <a href="https://www.edilex.fi/lainsaadanto/${statuteYear}${statutePaddedNumber}" title="Säädös Edilexissä">Edilex</a></li>`
+  )
+}
+
+function sectionLinks(optSf, optEd) {
+  // Add links to Semanttinen Finlex and/or Edilex for each section (§)
   $("#laki-ajantasa > h5:not([class])").each(function() {
     const sectionId = $(this)
       .prev()
       .children()
       .first()
       .attr("id")
-    const sfUrl = sfSectionUrl(sectionId)
-    if (sfUrl) {
-      $(this).append(
-        `<sup><small> (<b><a href="${sfUrl}" title="Lainkohta Semanttisessa Finlexissä">sf</a></b>)</small></sup>`
-      )
+    if (!sectionId) return true // skips to next iteration
+    const urls = sectionUrls(sectionId)
+    if (urls && optSf) {
+      sfLink = `<sup><small> (<b><a href="${urls.sf}" title="Lainkohta Semanttisessa Finlexissä">sf</a></b>)</small></sup>`
+      $(this).append(sfLink)
+    }
+    if (urls && optEd) {
+      edLink = `<sup><small> (<b><a href="${urls.ed}" title="Lainkohta Edilexissä">ed</a></b>)</small></sup>`
+      $(this).append(edLink)
     }
   })
 }
@@ -152,23 +160,26 @@ function finlexGpUrl(url) {
   return `https://www.finlex.fi/fi/esitykset/he/${year}/${year}${paddedNumber}`
 }
 
-function sfSectionUrl(sectionId) {
-  const urlMatches = location.href.match(/ajantasa\/(\d{4})\/(\d{8})/)
+function sectionUrls(sectionId) {
   if (!urlMatches) {
     return null
   }
-  const year = urlMatches[1]
-  const number = urlMatches[2].slice(-4).replace(/^0+/, "")
   const withChapters = sectionId.match(/L(\d+\w?)P(\d+\w?)$/)
   const sectionsOnly = sectionId.match(/^P(\d+\w?)$/)
   if (withChapters) {
     const chapt = withChapters[1]
     const sect = withChapters[2]
-    return `https://data.finlex.fi/eli/sd/${year}/${number}/luku/${chapt}/pykala/${sect}.html`
+    return {
+      sf: `https://data.finlex.fi/eli/sd/${statuteYear}/${statuteNumber}/luku/${chapt}/pykala/${sect}.html`,
+      ed: `https://www.edilex.fi/lainsaadanto/${statuteYear}${statutePaddedNumber}#L${chapt}P${sect}`
+    }
   }
   if (sectionsOnly) {
     const sect = sectionsOnly[1]
-    return `https://data.finlex.fi/eli/sd/${year}/${number}/pykala/${sect}.html`
+    return {
+      sf: `https://data.finlex.fi/eli/sd/${statuteYear}/${statuteNumber}/pykala/${sect}.html`,
+      ed: `https://www.edilex.fi/lainsaadanto/${statuteYear}${statutePaddedNumber}#P${sect}`
+    }
   }
   return null
 }

@@ -10,6 +10,8 @@ function save_options() {
       gpLinks: document.getElementById("gpLinks").checked,
       sfTopLink: document.getElementById("sfTopLink").checked,
       sfSectionLinks: document.getElementById("sfSectionLinks").checked,
+      edTopLink: document.getElementById("edTopLink").checked,
+      edSectionLinks: document.getElementById("edSectionLinks").checked,
       preQuote: document.getElementById("preQuote").checked,
       fokiRedirect: document.getElementById("fokiRedirect").checked
     },
@@ -29,6 +31,8 @@ function restore_options() {
       gpLinks: true,
       sfTopLink: true,
       sfSectionLinks: true,
+      edTopLink: false,
+      edSectionLinks: false,
       preQuote: false,
       fokiRedirect: false
     },
@@ -36,6 +40,8 @@ function restore_options() {
       document.getElementById("gpLinks").checked = items.gpLinks
       document.getElementById("sfTopLink").checked = items.sfTopLink
       document.getElementById("sfSectionLinks").checked = items.sfSectionLinks
+      document.getElementById("edTopLink").checked = items.edTopLink
+      document.getElementById("edSectionLinks").checked = items.edSectionLinks
       document.getElementById("preQuote").checked = items.preQuote
       document.getElementById("fokiRedirect").checked = items.fokiRedirect
     }
